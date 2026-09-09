@@ -13,6 +13,17 @@ AFPSCharacter::AFPSCharacter()
 
 	UE_LOG(LogTemp, Warning, TEXT("Player Constructor Being Called"));
 
+    FPSCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FPSCameraComponent")); 
+    FPSCameraComponent->SetupAttachment(CastChecked<USceneComponent, UCapsuleComponent>(GetCapsuleComponent())); // Attach to Capsule Component
+    FPSCameraComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 50.0f + BaseEyeHeight));
+    FPSCameraComponent->bUsePawnControlRotation = true;
+
+    FPSMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FPSMeshComponent"));
+    FPSMeshComponent->SetupAttachment(FPSCameraComponent);
+    FPSMeshComponent->bCastCapsuleDirectShadow = false;
+    FPSMeshComponent->CastShadow = false;
+
+    GetMesh()->SetOwnerNoSee(true);
 }
 
 // Called when the game starts or when spawned
