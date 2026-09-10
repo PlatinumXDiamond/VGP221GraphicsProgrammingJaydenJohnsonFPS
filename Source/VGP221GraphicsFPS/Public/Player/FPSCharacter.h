@@ -6,6 +6,7 @@
 #include "Components/CapsuleComponent.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Projectile/FPSProjectile.h"
 #include "FPSCharacter.generated.h"
 
 class UInputMappingContext;
@@ -51,6 +52,12 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	USkeletalMeshComponent* FPSMeshComponent;
+
+	UPROPERTY(EditAnywhere)
+	FVector MuzzleOffset;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class AFPSProjectile> ProjectileClass;
 
 	UFUNCTION()
 	void Move(const FInputActionValue& Value);

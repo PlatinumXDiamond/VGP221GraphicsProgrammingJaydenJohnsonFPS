@@ -11,6 +11,7 @@ AFPSProjectile::AFPSProjectile()
 
 	CollisionComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
 	CollisionComponent->InitSphereRadius(15.0f);
+	CollisionComponent->BodyInstance.SetCollisionProfileName(TEXT("Projectile"));
 	CollisionComponent->OnComponentHit.AddDynamic(this, &AFPSProjectile::OnCollide);
 	RootComponent = CollisionComponent;
 
@@ -78,6 +79,15 @@ void AFPSProjectile::OnCollide(UPrimitiveComponent* HitComponent, AActor* OtherA
 	if (OtherActor != this && OtherComponent->IsSimulatingPhysics()) {
 		OtherComponent->AddImpulseAtLocation(ProjectileMovementComponent->Velocity * 100.0f, Hit.ImpactPoint);
 		Destroy();
+
+	
 	}
+	// if no physics just destroy projectile
+	if (OtherActor != this) {
+		Destroy();
+
+
+	}
+	UE_LOG(LogTemp, Warning, TEXT("Projectile hit: %s"), *OtherActor->GetName());
 }
 
