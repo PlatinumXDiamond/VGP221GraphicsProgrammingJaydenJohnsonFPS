@@ -8,8 +8,10 @@ void AGameHUD::BeginPlay()
 {
 	Super::BeginPlay();
     // 2. Spawn & show slate
-    //ShowSettingsWidget();
+   // ShowSettingsWidget();
 
+    //spawn and show using  UMG
+    SpawnGameMenuWidget();
 }
 
 void AGameHUD::DrawHUD()
@@ -43,6 +45,58 @@ void AGameHUD::DrawHUD()
     Canvas->DrawItem(CrosshairTileItem);
 }
 
+void AGameHUD::SpawnGameMenuWidget()
+{
+    if (!GameMenuWidgetClass) return;
+
+    // Delete game menu widget if it already exists
+    if (GameMenuWidgetContainer) {
+        GameMenuWidgetContainer->RemoveFromParent();
+        GameMenuWidgetContainer = nullptr;
+    }
+
+    GameMenuWidgetContainer = CreateWidget<UGameMenuWidget>(GetWorld(), GameMenuWidgetClass);
+    GameMenuWidgetContainer->AddToViewport();
+
+    PlayerOwner->bShowMouseCursor = false;
+    PlayerOwner->SetInputMode(FInputModeGameOnly());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//slate stuff 
 void AGameHUD::ShowSettingsWidget()
 {
     SettingsWidget = SNew(SSettingsWidget);

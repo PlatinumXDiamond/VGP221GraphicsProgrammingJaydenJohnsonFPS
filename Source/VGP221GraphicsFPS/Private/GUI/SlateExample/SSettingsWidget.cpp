@@ -39,4 +39,42 @@ void SSettingsWidget::Construct(const FArguments& InArgs)
         ];
 
 }
+/*
+void SSettingsWidget::Construct(const FArguments& InArgs)
+{
+    const FMargin SettingsMargin(800.0f, 300.0f);
+
+    // Title Settings
+    const FText TitleText = FText::FromString("Settings Screen");
+    FSlateFontInfo TitleFontInfo = FCoreStyle::Get().GetFontStyle("EmbassedText");
+    TitleFontInfo.Size = 60;
+
+    ChildSlot
+    [
+        // Populate the widget
+        SNew(SOverlay)
+        +SOverlay::Slot()
+        .HAlign(HAlign_Fill)
+        .VAlign(VAlign_Fill)
+        [
+            SNew(SImage)
+            .ColorAndOpacity(FLinearColor::Black)
+        ]
+        +SOverlay::Slot()
+        .HAlign(HAlign_Fill)
+        .VAlign(VAlign_Fill)
+        .Padding(SettingsMargin)
+        [
+            SNew(SVerticalBox)
+            +SVerticalBox::Slot()
+            [
+                SNew(STextBlock)
+                .Text(TitleText)
+                .Font(TitleFontInfo)
+                .Justification(ETextJustify::Center)
+            ]
+        ]
+    ];
+
+}*/
 END_SLATE_FUNCTION_BUILD_OPTIMIZATION

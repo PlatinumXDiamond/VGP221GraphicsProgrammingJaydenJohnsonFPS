@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/Canvas.h"
 #include "GameFramework/HUD.h"
+#include "GUI/GameMenuWidget.h"
 #include "GUI/SlateExample/SSettingsWidget.h"
 #include "GameHUD.generated.h"
 
@@ -26,7 +27,41 @@ public:
 	UPROPERTY(EditAnywhere)
 	UTexture2D* CrosshairTexture;
 
-	// 2. Slates method of making UI
+
+
+	//UMG method of UI
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class UGameMenuWidget> GameMenuWidgetClass;
+	UGameMenuWidget* GameMenuWidgetContainer;
+
+	void SpawnGameMenuWidget();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//  Slates method of making UI
 	TSharedPtr<class SSettingsWidget> SettingsWidget;
 	TSharedPtr<class SWidget> SettingsWidgetContainer;
 
