@@ -78,6 +78,8 @@ void AFPSProjectile::OnCollide(UPrimitiveComponent* HitComponent, AActor* OtherA
 	// If physics, add impulse then destroy projectile
 	if (OtherActor != this && OtherComponent->IsSimulatingPhysics()) {
 		OtherComponent->AddImpulseAtLocation(ProjectileMovementComponent->Velocity * 100.0f, Hit.ImpactPoint);
+		//OnHurtPlayer(10.0f);
+	//	AFPSCharacter* 
 		Destroy();
 
 	
