@@ -85,11 +85,11 @@ void AFPSProjectile::OnCollide(UPrimitiveComponent* HitComponent, AActor* OtherA
 	
 	}
 	// if no physics just destroy projectile
-	if (OtherActor != this) {
-		Destroy();
+	//if (OtherActor != this) {
+		//Destroy();
 
 
-	}
+	//}
 	UE_LOG(LogTemp, Warning, TEXT("Projectile hit: %s"), *OtherActor->GetName());
 }
 
