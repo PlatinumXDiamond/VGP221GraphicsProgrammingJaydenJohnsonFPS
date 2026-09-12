@@ -140,6 +140,6 @@ void AFPSCharacter::OnHurtPlayer(float DamageAmount)
 
     if (Health <= 0.0f)
     {
-        UGameplayStatics::OpenLevel(this, FName("Level1"));
+        UGameplayStatics::OpenLevel(this, FName("DeathMenu"));
     }
 }

@@ -1,0 +1,11 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "MainMenuMode.h"
+
+void AMainMenuMode::StartPlay()
+{
+	Super::StartPlay();
+
+
+}
